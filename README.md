@@ -51,3 +51,5 @@ NOTE:-
 4. For creating database run: php artisan migrate
 
 5. An SQL file is also included for reference and can be used to recreate the database structure and tables.
+
+6. Project screenshots are also added for reference inside public/screenshot folder.
