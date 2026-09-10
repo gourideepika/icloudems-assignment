@@ -9,11 +9,6 @@ Route::get(
 )->name('import.index');
 
 Route::post(
-    '/import',
-    [ImportController::class, 'upload']
-)->name('import.upload');
-
-Route::post(
     '/import/chunk',
     [ImportController::class, 'uploadChunk']
 )->name('import.chunk');

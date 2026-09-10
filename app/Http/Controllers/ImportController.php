@@ -89,33 +89,6 @@ class ImportController extends Controller
         ));
     }
 
-    public function upload(Request $request)
-    {
-        $request->validate([
-            'csv_file' => [
-                'required',
-                'file',
-                'mimes:csv,txt',
-            ],
-        ]);
-
-        $file = $request->file('csv_file');
-
-        $path = $file->store('imports');
-
-        $import = Import::create([
-            'file_name' => $file->getClientOriginalName(),
-            'status' => 'pending',
-        ]);
-
-        ImportLedgerJob::dispatch($import->id, storage_path('app/' . $path));
-
-        return redirect()->back()->with(
-            'success',
-            'CSV uploaded. Import started in background.'
-        );
-    }
-
     public function uploadChunk(Request $request)
     {
         $directory = null;
